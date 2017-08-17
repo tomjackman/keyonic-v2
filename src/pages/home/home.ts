@@ -1,14 +1,23 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { KeycloakService } from '../../services/keycloak.service';
+import { TabsPage } from '../tabs/tabs';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+  providers: [KeycloakService]
 })
 export class HomePage {
+rootPage: any;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private keycloak: KeycloakService) {
 
+  }
+
+  login(): void {
+    // Redirect to Login
+    this.keycloak.login();
   }
 
 }

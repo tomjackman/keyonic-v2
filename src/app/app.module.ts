@@ -3,10 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
+import { AccessPage } from '../pages/access/access';
+import { AccountPage } from '../pages/account/account';
+import { UserPage } from '../pages/user/user';
 import { TabsPage } from '../pages/tabs/tabs';
+import { HomePage } from '../pages/home/home';
+import { ServerPage } from '../pages/server/server';
+
+import { KeycloakService } from '../services/keycloak.service';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -14,10 +18,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
+    AccessPage,
+    AccountPage,
+    UserPage,
+    TabsPage,
     HomePage,
-    TabsPage
+    ServerPage
   ],
   imports: [
     BrowserModule,
@@ -26,14 +32,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
+    AccessPage,
+    AccountPage,
+    UserPage,
+    TabsPage,
     HomePage,
-    TabsPage
+    ServerPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    KeycloakService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

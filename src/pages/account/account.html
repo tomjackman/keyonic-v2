@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>
+      Account
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+      <ion-item>
+        Account
+        <button ion-button clear item-end icon-left color="danger" (click)="accountManagement()">
+          <ion-icon name="ios-build"></ion-icon>
+          Manage
+        </button>
+      </ion-item>
+
+      <ion-item>
+        Tokens
+        <button ion-button clear item-end icon-left color="danger" (click)="clearToken()">
+          <ion-icon name="close"></ion-icon>
+          Clear
+        </button>
+      </ion-item>
+
+      <ion-item>
+        <ion-label> OTP 2FA</ion-label>
+        <ion-toggle disabled color="secondary" checked="{{account.totp}}"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Email Verified</ion-label>
+        <ion-toggle disabled color="secondary" checked="{{account.emailVerified}}"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="dark"> User Enabled</ion-label>
+        <ion-toggle disabled color="secondary" checked="{{account.enabled}}"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-item-group>
+      <ion-item-divider color="light">Credentials in Use</ion-item-divider>
+      <ion-item>Angola</ion-item>
+      <ion-item>Argentina</ion-item>
+    </ion-item-group>
+
+
+
+  <ion-fab right bottom (click)="logout()">
+    <button ion-fab color="dark"><ion-icon name="md-exit"></ion-icon></button>
+  </ion-fab>
+</ion-content>

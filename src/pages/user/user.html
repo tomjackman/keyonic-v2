@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>User</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+
+    <img src="../assets/background.png">
+    <ion-fab right top (click)="showUserInfo()">
+      <button ion-fab color="light">
+        <ion-icon name="md-finger-print"></ion-icon>
+      </button>
+    </ion-fab>
+
+    <ion-item>
+    <ion-avatar item-start>
+     <img src="{{profile.avatar}}">
+    </ion-avatar>
+      <h2>{{profile.firstName}} {{profile.lastName}}</h2>
+      <p><i>{{profile.username}}</i></p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="clock" item-left ></ion-icon>
+      <h2>{{profile.createdTimestamp}}</h2>
+      <p>User Creation Date</p>
+    </ion-item>
+
+    <ion-item>
+      <span item-left>18 min</span>
+      <span item-left>(2.6 mi)</span>
+      <button ion-button icon-left clear item-end>
+        <ion-icon name="navigate"></ion-icon>
+        Start
+      </button>
+    </ion-item>
+
+
+  </ion-card>
+</ion-content>

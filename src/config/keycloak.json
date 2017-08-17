@@ -1,0 +1,8 @@
+{
+  "realm": "keypress",
+  "url": "http://localhost:8080/auth",
+  "ssl-required": "external",
+  "clientId": "keypress-mobile",
+  "public-client": true,
+  "use-resource-role-mappings": true
+}

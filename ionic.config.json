@@ -1,5 +1,6 @@
 {
-  "name": "ionic-app",
+  "name": "keyonic-v2",
   "app_id": "",
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "integrations": {}
 }
