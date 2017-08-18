@@ -39,11 +39,8 @@ Also ensure that the redirectUri is pointing to where the ionic dev server is ru
 
 User Credentials:
 
-* `keypress-admin`
-* `admin`
+* `keypress-admin/admin`
 
-* `areader`
-* `123`
+* `areader/123`
 
-* `apublisher`
-* `123`
+* `apublisher/123`
