@@ -6,6 +6,8 @@ A Keycloak Mobile Implementation using Angular v4 and Ionic v3.
 * Node 6 LTS
 * Ionic 3
 
+`npm install -g ionic cordova`
+
 ## Installation
 The following configuration was used for this application.
 
