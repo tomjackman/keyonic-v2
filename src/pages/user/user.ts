@@ -26,7 +26,6 @@ profile: any = {};
 
   loadUserProfile(): void {
     this.keycloak.loadUserProfile().then((profile) => {
-      console.log(profile);
       this.profile = {
         username: profile.username ? profile.username : "Unknown Username",
         firstName: profile.firstName ? profile.firstName : "Unknown First Name",
@@ -34,6 +33,7 @@ profile: any = {};
         avatar: profile.attributes.avatar ? profile.attributes.avatar[0] : "Unknown Avatar",
         createdTimestamp: profile.createdTimestamp ? this.timeConverter(profile.createdTimestamp) : "Unknown Created Timestamp",
         id: profile.id ? profile.id : "Unknown User ID",
+        email: profile.email ? profile.email : "Unknown User Email",
         job: profile.attributes.job ? profile.attributes.job[0] : "Unknown Job",
         summary: profile.attributes.summary ? profile.attributes.summary[0] : "Unknown Summary"
       };
@@ -52,12 +52,10 @@ profile: any = {};
   timeConverter(timestamp): string {
     var a = new Date(timestamp * 1000);
     var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-    var year = a.getFullYear();
     var month = months[a.getMonth()];
     var date = a.getDate();
     var hour = a.getHours();
     var min = a.getMinutes();
-    var sec = a.getSeconds();
     var time = date + ' ' + month + ' ' + hour + ':' + min;
   return time;
 }

@@ -8,7 +8,7 @@
 
 <ion-content>
     <ion-list>
-      <ion-item-divider color="light">User</ion-item-divider>
+      <ion-item-divider color="light">User Management</ion-item-divider>
 
       <ion-item>
         Account
@@ -26,6 +26,7 @@
         </button>
       </ion-item>
 
+      <ion-item-divider color="light">User State</ion-item-divider>
       <ion-item>
         <ion-label> OTP 2FA Enabled</ion-label>
         <ion-toggle disabled color="secondary" checked="{{account.totp}}"></ion-toggle>
@@ -42,11 +43,11 @@
       </ion-item>
     </ion-list>
 
-    <ion-item-group>
-      <ion-item-divider color="light">Credentials in Use</ion-item-divider>
-      <ion-item>Angola</ion-item>
-      <ion-item>Argentina</ion-item>
-    </ion-item-group>
+    <ion-item-divider color="light">Credential Usage</ion-item-divider>
+    <ion-item *ngFor="let type of account.credentialTypes">
+    {{ type }}
+    <ion-icon name="key" color="secondary" item-end></ion-icon>
+    </ion-item>
 
 
 

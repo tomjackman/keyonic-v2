@@ -40,6 +40,10 @@ export class KeycloakService {
     // Clears Authentication State
     KeycloakService.auth.authz.clearToken();
   }
+  getRealmRoles(): void {
+    // Return the users realm level roles
+    return KeycloakService.auth.authz.realmAccess.roles;
+  }
   getConfiguration(): object {
     var notAvailable = "N/A";
     return {

@@ -7,31 +7,16 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    Create Notes
-    <ion-icon name="radio-button-on" color="danger" item-end></ion-icon>
-  </ion-item>
+  <ion-item-divider color="light">Assigned Roles</ion-item-divider>
+  <ion-item *ngFor="let role of userRoles" (click)="itemSelected(item)">
+  {{ role }}
+  <ion-icon name="radio-button-on" color="secondary" item-end></ion-icon>
+</ion-item>
 
-  <ion-item>
-    Delete Notes
-    <ion-icon name="radio-button-on" color="secondary" item-end></ion-icon>
-  </ion-item>
-  <ion-item>
-    Create Notes
-    <ion-icon name="radio-button-on" color="danger" item-end></ion-icon>
-  </ion-item>
+<ion-item-divider color="light">Unassigned Roles</ion-item-divider>
+<ion-item *ngFor="let role of realmRoles" (click)="itemSelected(item)">
+{{ role }}
+<ion-icon name="radio-button-on" color="danger" item-end></ion-icon>
+</ion-item>
 
-  <ion-item>
-    Delete Notes
-    <ion-icon name="radio-button-on" color="secondary" item-end></ion-icon>
-  </ion-item>
-  <ion-item>
-    Create Notes
-    <ion-icon name="radio-button-on" color="danger" item-end></ion-icon>
-  </ion-item>
-
-  <ion-item>
-    Delete Notes
-    <ion-icon name="radio-button-on" color="secondary" item-end></ion-icon>
-  </ion-item>
 </ion-content>

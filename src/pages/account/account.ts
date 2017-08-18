@@ -8,7 +8,7 @@ import { KeycloakService } from '../../services/keycloak.service';
   providers: [KeycloakService]
 })
 export class AccountPage {
-account: any = {};
+account: object = {};
 
   keycloakConfiguration: object;
 
@@ -21,7 +21,8 @@ account: any = {};
       this.account = {
         enabled: profile.enabled ? profile.enabled : false,
         totp: profile.totp ? profile.totp : false,
-        emailVerified: profile.emailVerified ? profile.emailVerified : false
+        emailVerified: profile.emailVerified ? profile.emailVerified : false,
+        credentialTypes: profile.disableableCredentialTypes ? profile.disableableCredentialTypes: []
       };
     })
     .catch((err) => console.error("Error retrieving user profile", err));
