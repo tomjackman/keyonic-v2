@@ -8,16 +8,19 @@ import { KeycloakService } from '../../services/keycloak.service';
   providers: [KeycloakService]
 })
 export class ServerPage {
-account: any = {};
-
-  keycloakConfiguration: object;
+keycloakConfiguration: object;
 
   constructor(public navCtrl: NavController, private keycloak: KeycloakService) {
+    this.keycloakConfiguration = {};
+  }
+
+  loadServerInfo() {
     this.keycloakConfiguration = this.keycloak.getConfiguration();
+    console.log(this.keycloakConfiguration);
   }
 
   ionViewDidEnter() {
-    
+    this.loadServerInfo();
   }
 
 

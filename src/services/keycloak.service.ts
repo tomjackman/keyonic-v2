@@ -43,9 +43,13 @@ export class KeycloakService {
   getConfiguration(): object {
     var notAvailable = "N/A";
     return {
-      "Auth Server URL": KeycloakService.auth.authz.authServerUrl ? KeycloakService.auth.authz.authServerUrl : notAvailable,
-      "OpenID Connect Flow": KeycloakService.auth.authz.flow ? KeycloakService.auth.authz.flow : notAvailable,
-      "OpenID Response Mode": KeycloakService.auth.authz.responseMode ? KeycloakService.auth.authz.responseMode : notAvailable
+      "authServerUrl": KeycloakService.auth.authz.authServerUrl ? KeycloakService.auth.authz.authServerUrl : notAvailable,
+      "openIdFlow": KeycloakService.auth.authz.flow ? KeycloakService.auth.authz.flow : notAvailable,
+      "openIdResponseMode": KeycloakService.auth.authz.responseMode ? KeycloakService.auth.authz.responseMode : notAvailable,
+      "openIdResponseType": KeycloakService.auth.authz.responseType ? KeycloakService.auth.authz.responseType : notAvailable,
+      "realm": KeycloakService.auth.authz.realm ? KeycloakService.auth.authz.realm : notAvailable,
+      "clientId": KeycloakService.auth.authz.clientId ? KeycloakService.auth.authz.clientId : notAvailable,
+      "timeSkew": KeycloakService.auth.authz.timeSkew ? KeycloakService.auth.authz.timeSkew : notAvailable
     };
   }
   accountManagement(): void {

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { KeycloakService } from '../../services/keycloak.service';
-import { TabsPage } from '../tabs/tabs';
 
 @Component({
   selector: 'page-home',

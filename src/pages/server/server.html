@@ -7,5 +7,37 @@
 </ion-header>
 
 <ion-content>
-
+    <ion-list>
+      <ion-item-group>
+        <ion-item-divider color="light">OpenID Connect Configuration</ion-item-divider>
+        <ion-item>
+          {{keycloakConfiguration.authServerUrl}}
+          <ion-note item-end>Server URL</ion-note>
+        </ion-item>
+        <ion-item>
+          {{keycloakConfiguration.openIdFlow}}
+          <ion-note item-end>Auth Code Flow</ion-note>
+        </ion-item>
+        <ion-item>
+          {{keycloakConfiguration.openIdResponseMode}}
+          <ion-note item-end>Response Mode</ion-note>
+        </ion-item>
+        <ion-item>
+          {{keycloakConfiguration.openIdResponseType}}
+          <ion-note item-end>Response Type</ion-note>
+        </ion-item>
+        <ion-item>
+          {{keycloakConfiguration.realm}}
+          <ion-note item-end>Realm</ion-note>
+        </ion-item>
+        <ion-item>
+          {{keycloakConfiguration.clientId}}
+          <ion-note item-end>Client ID</ion-note>
+        </ion-item>
+        <ion-item>
+          {{keycloakConfiguration.timeSkew}} second(s)
+          <ion-note item-end>Time Skew</ion-note>
+        </ion-item>
+      </ion-item-group>
+    </ion-list>
 </ion-content>
