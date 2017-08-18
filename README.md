@@ -34,3 +34,16 @@ Run `ionic serve --address localhost` to start the application.
 Ensure that you have the Web Origin configured in Keycloak. eg `*` or other. (This should be done when you import the realm)
 
 Also ensure that the redirectUri is pointing to where the ionic dev server is running. eg. `http://localhost:8100/*` (Only if your ionic app is running on a different URL)
+
+## Usage
+
+User Credentials:
+
+* `keypress-admin`
+* `admin`
+
+* `areader`
+* `123`
+
+* `apublisher`
+* `123`
