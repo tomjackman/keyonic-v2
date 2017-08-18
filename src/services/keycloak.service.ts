@@ -44,6 +44,10 @@ export class KeycloakService {
     // Return the users realm level roles
     return KeycloakService.auth.authz.realmAccess.roles;
   }
+  hasRealmRole(role: String): boolean {
+    // check if the user has a specified realm role
+    return KeycloakService.auth.authz.hasRealmRole(role);
+  }
   getConfiguration(): object {
     var notAvailable = "N/A";
     return {
