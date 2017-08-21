@@ -1,12 +1,12 @@
 ## Keyonic-V2
 A Keycloak Mobile Implementation using Angular v4 and Ionic v3.
 
-![](./keyonic-v2-overview.gif)
-
 ## Version 2 Enhancements
 * Implementation with Angular 4/Typescript/Ionic 3
 * ViewGuard - View level access is protected based on a Role
 * More Keycloak functions used and information served
+
+![](./keyonic-v2-overview.gif)
 
 ## Requirements
 * Apache Cordova
