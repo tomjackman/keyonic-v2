@@ -6,13 +6,22 @@ import { AlertController } from 'ionic-angular';
 declare var Keycloak: any;
 
 @Injectable()
+/**
+ * Contains properties of the Keycloak Service.
+ */
 export class KeycloakService {
   static auth: any = {};
 
+  /**
+  * @param alertCtrl The ionic alert controller
+  */
   constructor(public alertCtrl: AlertController) {
     this.alertCtrl = alertCtrl;
   }
 
+  /**
+  * Initialise the Keycloak Client Adapter
+  */
   static init(): Promise<any> {
     // Create a new Keycloak Client Instance
     let keycloakAuth: any = new Keycloak(keycloakConfig);
@@ -27,26 +36,39 @@ export class KeycloakService {
           });
       });
     }
+  /**
+  * Redirect to logout
+  */
   logout(): void {
-    // Redirect to logout
     KeycloakService.auth.authz.logout();
   }
+  /**
+   * Redirect to Login
+   */
   login(): void {
-    // Redirect to Login
     KeycloakService.auth.authz.login();
   }
+  /**
+   * Clears Authentication State
+   */
   clearToken(): void {
-    // Clears Authentication State
     KeycloakService.auth.authz.clearToken();
   }
+  /**
+   * Return the users realm level roles
+   */
   getRealmRoles(): void {
-    // Return the users realm level roles
     return KeycloakService.auth.authz.realmAccess.roles;
   }
+  /**
+   * Check if the user has a specified realm role
+   */
   hasRealmRole(role: String): boolean {
-    // check if the user has a specified realm role
     return KeycloakService.auth.authz.hasRealmRole(role);
   }
+  /**
+   * Get Server/Open ID Connect specific server info
+   */
   getConfiguration(): object {
     var notAvailable = "N/A";
     return {
@@ -59,10 +81,15 @@ export class KeycloakService {
       "timeSkew": KeycloakService.auth.authz.timeSkew ? KeycloakService.auth.authz.timeSkew : notAvailable
     };
   }
+  /**
+   * Redirects to the Account Management Console
+   */
   accountManagement(): void {
-    // Redirects to the Account Management Console
     KeycloakService.auth.authz.accountManagement();
   }
+  /**
+   * Get the users profile
+   */
   loadUserProfile(): any {
     // Retrieve User Profile
     return new Promise((resolve, reject) => {
@@ -73,6 +100,10 @@ export class KeycloakService {
       });
     });
   }
+  /**
+   * Check if the user has a given role
+   * @param role The role to check if the user posesses
+   */
   viewGuard(role: string): boolean {
       if(KeycloakService.auth.authz.hasRealmRole(role)) {
         return true
