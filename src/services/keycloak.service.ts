@@ -1,16 +1,16 @@
 declare var require: any
 import { Injectable } from '@angular/core';
 var keycloakConfig = require('../config/keycloak.json');
+import { AlertController } from 'ionic-angular';
 
 declare var Keycloak: any;
 
 @Injectable()
 export class KeycloakService {
   static auth: any = {};
-  rootPage:any;
 
-  constructor() {
-
+  constructor(public alertCtrl: AlertController) {
+    this.alertCtrl = alertCtrl;
   }
 
   static init(): Promise<any> {
@@ -19,7 +19,6 @@ export class KeycloakService {
 
       return new Promise((resolve, reject) => {
         keycloakAuth.init({ onLoad: 'login-required', flow: 'implicit' }).success(() => {
-            console.log(keycloakAuth);
             KeycloakService.auth.authz = keycloakAuth;
             KeycloakService.auth.logoutUrl = keycloakAuth.authServerUrl + "/realms/keypress/protocol/openid-connect/logout?redirect_uri=/";
             resolve();
@@ -73,5 +72,13 @@ export class KeycloakService {
         reject('Failed to retrieve user profile');
       });
     });
+  }
+  viewGuard(role: string): boolean {
+      if(KeycloakService.auth.authz.hasRealmRole(role)) {
+        return true
+      } else {
+        this.alertCtrl.create({title: 'Access Denied', subTitle: "You don't have access to the requested resource."}).present();
+        return false;
+      }
   }
 }

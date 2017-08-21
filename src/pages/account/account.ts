@@ -1,21 +1,30 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
 import { KeycloakService } from '../../services/keycloak.service';
+import viewGuardRules from "../../config/viewGuardRules";
 
 @Component({
   selector: 'page-account',
   templateUrl: 'account.html',
   providers: [KeycloakService]
 })
+/**
+ * Contains properties of the Account Page.
+ */
 export class AccountPage {
-account: object = {};
+account: object;
 
-  keycloakConfiguration: object;
-
-  constructor(public navCtrl: NavController, private keycloak: KeycloakService) {
-    this.keycloakConfiguration = this.keycloak.getConfiguration();
+  /**
+  * @param keycloak The Keycloak Service
+  * @param navCtrl The Ionic Navigation Controller
+  */
+  constructor(private keycloak: KeycloakService) {
+    this.keycloak = keycloak;
+    this.account = {};
   }
 
+  /**
+  * Load and format the user profile for displaying in the UI
+  */
   loadUserProfile(): void {
     this.keycloak.loadUserProfile().then((profile) => {
       this.account = {
@@ -28,23 +37,39 @@ account: object = {};
     .catch((err) => console.error("Error retrieving user profile", err));
     }
 
-  ionViewDidEnter() {
+  /**
+  * Call the loadUserProfile() funnction when the page has fully entered and is now the active page.
+  */
+  ionViewDidEnter(): void {
     this.loadUserProfile();
   }
 
-  logout() {
-    // Redirect to Logout
+  /**
+  * Redirect to Logout
+  */
+  logout(): void {
     this.keycloak.logout();
   }
 
-  accountManagement() {
-    // Redirects to the Account Management Console
+  /**
+  * Redirects to the Account Management Console
+  */
+  accountManagement(): void {
     this.keycloak.accountManagement();
   }
 
-  clearToken() {
-    // Clears Authentication State
+  /**
+  * Clears Authentication State
+  */
+  clearToken(): void {
     this.keycloak.clearToken();
+  }
+
+  /**
+  * Check Auth state before rendering the view to allow/deny access for rendering this view
+  */
+  ionViewCanEnter(): boolean {
+    return this.keycloak.viewGuard(viewGuardRules.default);
   }
 
 }

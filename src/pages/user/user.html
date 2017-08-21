@@ -5,13 +5,9 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-card >
+
     <img src="../assets/background.png">
-    <ion-fab right top (click)="showUserInfo()">
-      <button ion-fab color="light">
-        <ion-icon name="md-finger-print"></ion-icon>
-      </button>
-    </ion-fab>
     <ion-item>
     <ion-avatar item-start>
      <img src="{{profile.avatar}}">
@@ -35,5 +31,11 @@
       <p>Summary</p>
     </ion-item>
   </ion-card>
+
+  <ion-fab right bottom (click)="showUserInfo()">
+    <button ion-fab color="secondary">
+      <ion-icon name="md-finger-print"></ion-icon>
+    </button>
+  </ion-fab>
 
 </ion-content>

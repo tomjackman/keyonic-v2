@@ -8,13 +8,13 @@
 
 <ion-content>
   <ion-item-divider color="light">Assigned Roles</ion-item-divider>
-  <ion-item *ngFor="let role of userRoles" (click)="itemSelected(item)">
+  <ion-item *ngFor="let role of userRoles">
   {{ role }}
   <ion-icon name="radio-button-on" color="secondary" item-end></ion-icon>
 </ion-item>
 
 <ion-item-divider color="light">Unassigned Roles</ion-item-divider>
-<ion-item *ngFor="let role of realmRoles" (click)="itemSelected(item)">
+<ion-item *ngFor="let role of realmRoles">
 {{ role }}
 <ion-icon name="radio-button-on" color="danger" item-end></ion-icon>
 </ion-item>

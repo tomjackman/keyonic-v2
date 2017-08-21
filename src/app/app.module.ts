@@ -7,7 +7,6 @@ import { AccessPage } from '../pages/access/access';
 import { AccountPage } from '../pages/account/account';
 import { UserPage } from '../pages/user/user';
 import { TabsPage } from '../pages/tabs/tabs';
-import { HomePage } from '../pages/home/home';
 import { ServerPage } from '../pages/server/server';
 
 import { KeycloakService } from '../services/keycloak.service';
@@ -22,7 +21,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AccountPage,
     UserPage,
     TabsPage,
-    HomePage,
     ServerPage
   ],
   imports: [
@@ -36,7 +34,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AccountPage,
     UserPage,
     TabsPage,
-    HomePage,
     ServerPage
   ],
   providers: [
