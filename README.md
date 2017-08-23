@@ -41,13 +41,13 @@ You can import the keyonic-v2 Realm (`keyonic-v2-realm.json`) and Users (`keyoni
 
 You must first have a running Keycloak instance running as the Keycloak JS Adapter is being fetched from the Keycloak server itself, rather than via npm.
 
-Note: In this sample application, Keycloak is expected to be already running off `localhost:8080`. This can be changed however in `www/index.html` under `<script src="http://localhost:8080/auth/js/keycloak.js"></script>`
+*Note*: In this sample application, Keycloak is expected to be already running off `localhost:8080`. This can be changed however in `src/index.html` under `<script src="http://localhost:8080/auth/js/keycloak.js"></script>`
 
 Run `ionic serve --address localhost` to start the application.
 
 Ensure that you have the Web Origin configured in Keycloak. eg `*` or other. (This should be done when you import the realm)
 
-Also ensure that the redirectUri is pointing to where the ionic dev server is running. eg. `http://localhost:8100/*` (Only if your ionic app is running on a different URL)
+Also ensure that the redirectUri for the client is pointing to where the ionic dev server is running. eg. `http://localhost:8100/*` (Only if your ionic app is running on a different URL)
 
 ## Usage
 
