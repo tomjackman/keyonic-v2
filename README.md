@@ -21,29 +21,19 @@ Use Node 6
 * `nvm use 6.9`
 
 ## Installation
-The following configuration was used for this application.
+Run `ionic serve --address localhost` to start the application.
 
-```
-{
-  "realm": "keypress",
-  "url": "http://localhost:8080/auth",
-  "ssl-required": "external",
-  "clientId": "keyonic-v2",
-  "public-client": true,
-  "use-resource-role-mappings": true
-}
-```
+**Note**: You must first have the Keycloak Server running with a configured Realm and Users:
+
 You can import the keyonic-v2 Realm (`keyonic-v2-realm.json`) and Users (`keyonic-v2-users.json`) JSON files [here](https://github.com/TommyJ1994/keypress/tree/master/keycloak) to populate Keycloak with the correct configuration.
 
 * Under the Realms section in Keycloak, add a new Realm with the Import option.
 * Import the `keyonic-v2-realm.json` file.
 * Once complete, visit the newly created realm and click the 'Import' button at the bottom left of the sidebar. You will import the users here. Choose the `keyonic-v2-users.json` file.
 
-You must first have a running Keycloak instance running as the Keycloak JS Adapter is being fetched from the Keycloak server itself, rather than via npm.
+**Note**: You must first have a running Keycloak instance running as the Keycloak JS Adapter in the mobile app is being fetched from the Keycloak server itself, rather than via npm.
 
-*Note*: In this sample application, Keycloak is expected to be already running off `localhost:8080`. This can be changed however in `src/index.html` under `<script src="http://localhost:8080/auth/js/keycloak.js"></script>`
-
-Run `ionic serve --address localhost` to start the application.
+In this sample application, Keycloak is expected to be already running off `localhost:8080`. This can be changed however in `src/index.html` under `<script src="http://localhost:8080/auth/js/keycloak.js"></script>`
 
 Ensure that you have the Web Origin configured in Keycloak. eg `*` or other. (This should be done when you import the realm)
 
