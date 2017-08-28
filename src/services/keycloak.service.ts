@@ -39,6 +39,12 @@ export class KeycloakService {
   /**
   * Redirect to logout
   */
+  getToken(): string {
+    return KeycloakService.auth.authz.token;
+  }
+  /**
+  * Redirect to logout
+  */
   logout(): void {
     KeycloakService.auth.authz.logout();
   }

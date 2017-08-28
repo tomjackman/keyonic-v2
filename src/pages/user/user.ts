@@ -3,6 +3,11 @@ import { NavController } from 'ionic-angular';
 import { KeycloakService } from '../../services/keycloak.service';
 import { AlertController } from 'ionic-angular';
 import viewGuardRules from "../../config/viewGuardRules";
+import { Http } from '@angular/http';
+import {Response} from '@angular/http';
+import {RequestOptions} from '@angular/http';
+import {Headers} from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'page-user',
@@ -20,11 +25,12 @@ profile: any;
   * @param alertCtrl The ionic alert controller
   * @param navCtrl The Ionic Navigation Controller
   */
-  constructor(private keycloak: KeycloakService, public alertCtrl: AlertController, public navCtrl: NavController) {
+  constructor(private keycloak: KeycloakService, public alertCtrl: AlertController, public navCtrl: NavController, public http: Http) {
     this.keycloak = keycloak;
     this.alertCtrl = alertCtrl;
     this.navCtrl = navCtrl;
     this.profile = {};
+    this.http = http;
   }
 
   /**
@@ -58,11 +64,25 @@ profile: any;
     .catch((err) => console.error("Error retrieving user profile", err));
     }
 
+  getUser() {
+    let headers = new Headers({
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ' + this.keycloak.getToken()
+    });
+
+    let options = new RequestOptions({headers});
+
+
+    return this.http.get("http://localhost:3000/", options)
+    .map((res:Response) => res.json()).subscribe();
+  }
+
   /**
    * Call the loadUserProfile() funnction when the page has fully entered and is now the active page.
    */
-  ionViewDidEnter(): void {
+  ionViewDidEnter() {
     this.loadUserProfile();
+    this.getUser();
   }
 
   /**

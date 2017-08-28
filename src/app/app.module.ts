@@ -10,6 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { ServerPage } from '../pages/server/server';
 
 import { KeycloakService } from '../services/keycloak.service';
+import { HttpModule } from '@angular/http';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -25,6 +26,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
