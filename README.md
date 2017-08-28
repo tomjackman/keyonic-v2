@@ -50,4 +50,4 @@ User Credentials:
 * `apublisher/123`
 
 ## Bearer Example
-For an exmaple using bearer tokens for accessing a REST API, checkout the `bearer_example` branch here and in [Keypress#bearer_example](https://github.com/TommyJ1994/keypress)
+For an example using bearer tokens for accessing a REST API, checkout the `bearer_example` branch here and in [Keypress#bearer_example](https://github.com/TommyJ1994/keypress)
