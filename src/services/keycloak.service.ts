@@ -27,7 +27,7 @@ export class KeycloakService {
     let keycloakAuth: any = new Keycloak(keycloakConfig);
 
       return new Promise((resolve, reject) => {
-        keycloakAuth.init({ onLoad: 'login-required', flow: 'implicit' }).success(() => {
+        keycloakAuth.init({ onLoad: 'login-required' }).success(() => {
             KeycloakService.auth.authz = keycloakAuth;
             KeycloakService.auth.logoutUrl = keycloakAuth.authServerUrl + "/realms/keypress/protocol/openid-connect/logout?redirect_uri=/";
             resolve();
@@ -105,11 +105,6 @@ export class KeycloakService {
    * @param role The role to check if the user posesses
    */
   viewGuard(role: string): boolean {
-      if(KeycloakService.auth.authz.hasRealmRole(role)) {
         return true
-      } else {
-        this.alertCtrl.create({title: 'Access Denied', subTitle: "You don't have access to the requested resource."}).present();
-        return false;
-      }
   }
 }

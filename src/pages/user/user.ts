@@ -44,15 +44,16 @@ profile: any;
   */
   loadUserProfile(): void {
     this.keycloak.loadUserProfile().then((profile) => {
+    console.log(profile);
       this.profile = {
         username: profile.username ? profile.username : "Unknown Username",
         firstName: profile.firstName ? profile.firstName : "Unknown First Name",
         lastName: profile.lastName ? profile.lastName : "Unknown Last Name",
-        avatar: profile.attributes.avatar ? profile.attributes.avatar[0] : "Unknown Avatar",
+        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbULoSv6JvrY1vESgNvye5JJBCBmjgFFgd9NvWTCBHDTYZZs7CHw",
         id: profile.id ? profile.id : "Unknown User ID",
-        email: profile.email ? profile.email : "Unknown User Email",
-        job: profile.attributes.job ? profile.attributes.job[0] : "Unknown Job",
-        summary: profile.attributes.summary ? profile.attributes.summary[0] : "Unknown Summary"
+        email: "Unknown User Email",
+        job: "Unknown Job",
+        summary: "Unknown Summary"
       };
     })
     .catch((err) => console.error("Error retrieving user profile", err));
