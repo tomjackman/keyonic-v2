@@ -29,7 +29,7 @@ export class KeycloakService {
       return new Promise((resolve, reject) => {
         keycloakAuth.init({ onLoad: 'login-required', flow: 'implicit' }).success(() => {
             KeycloakService.auth.authz = keycloakAuth;
-            KeycloakService.auth.logoutUrl = keycloakAuth.authServerUrl + "/realms/keypress/protocol/openid-connect/logout?redirect_uri=/";
+            KeycloakService.auth.logoutUrl = keycloakAuth.authServerUrl + "/realms/" + keycloakConfig.realm + "/protocol/openid-connect/logout?redirect_uri=/";
             resolve();
           }).error((err) => {
             reject(err);
